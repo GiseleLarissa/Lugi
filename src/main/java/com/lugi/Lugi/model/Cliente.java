@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 
 @Entity
-public class Usuario {
+public class Cliente {
 	
 	
 @Id
@@ -33,7 +33,7 @@ private Aluguel aluguel;
 
 
 
-public Usuario(Long id, String nome, String email, double cPF, double celular, LocalDate datadeNascimento,
+public Cliente(Long id, String nome, String email, double cPF, double celular, LocalDate datadeNascimento,
 		Aluguel aluguel) {
 	super();
 	this.id = id;
@@ -129,7 +129,7 @@ public boolean equals(Object obj) {
 		return false;
 	if (getClass() != obj.getClass())
 		return false;
-	Usuario other = (Usuario) obj;
+	Cliente other = (Cliente) obj;
 	if (Double.doubleToLongBits(CPF) != Double.doubleToLongBits(other.CPF))
 		return false;
 	if (Double.doubleToLongBits(Celular) != Double.doubleToLongBits(other.Celular))
@@ -161,7 +161,6 @@ public boolean equals(Object obj) {
 		return false;
 	return true;
 } 
-
 
 
 
