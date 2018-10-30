@@ -5,6 +5,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +35,7 @@ public class AluguelController {
 		return aluguelRepository.save(aluguel);
 	}	
 	
-	@PutMapping("/aluguel / {aluguelId}")
+	@PutMapping("/aluguel/{aluguelId}")
 	public Aluguel updateAluguel (@PathVariable Long aluguelId, 
 			
 			                                    @Valid @RequestBody Aluguel aluguelRequest) {
@@ -46,6 +48,16 @@ public class AluguelController {
 					aluguel.setTipoPagamento(aluguelRequest.getTipoPagamento());
 					return aluguelRepository.save(aluguel);
 		}).orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + aluguelId));
+	}
+	
+	@DeleteMapping("/aluguel/{aluguelId}")
+	public ResponseEntity<?> deleteQuestion(@PathVariable Long aluguelId){
+		return aluguelRepository.findById(aluguelId)
+				.map(aluguel ->{
+					aluguelRepository.delete(aluguel);
+					return ResponseEntity.ok().build();
+				}).orElseThrow (() -> new  ResourceNotFoundException("FamilyMember not found: " + aluguelId));
+
 	}
 				
 }
