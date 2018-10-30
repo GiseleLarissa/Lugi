@@ -1,16 +1,16 @@
-package com.lugi.Lugi.resource;
+package com.lugi.Lugi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lugi.Lugi.repositories.AluguelRepository;
 
 @RestController
-@RequestMapping("")
-public class AluguelResource {
+public class AluguelController {
 	
-	@Autowired 
-	AluguelRepository aluguelRepository;
+	@Autowired
+	private AluguelRepository aluguelRepository;
+	
+	
 
 }
