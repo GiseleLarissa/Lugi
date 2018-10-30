@@ -36,7 +36,7 @@ public class CarroController {
 		return carroRepository.save(carro);
 	}
 	
-	@PutMapping("/carro")
+	@PutMapping("/carro/{carroId}")
 	public Carro updateCarro (@PathVariable Long carroId, 
 			
             @Valid @RequestBody Carro carroRequest) {
@@ -53,7 +53,7 @@ public class CarroController {
 			}
 	
 	
-	@DeleteMapping("/carro")
+	@DeleteMapping("/carro/{carroId}")
 	public ResponseEntity<?> deleteQuestion(@PathVariable Long carroId){
 		return carroRepository.findById(carroId)
 				.map(carro ->{
