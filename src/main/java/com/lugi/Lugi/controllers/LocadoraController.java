@@ -2,7 +2,7 @@ package com.lugi.Lugi.controllers;
 
 import javax.validation.Valid;
 
-import org.hibernate.sql.Update;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lugi.Lugi.exception.ResourceNotFoundException;
-import com.lugi.Lugi.model.Carro;
 import com.lugi.Lugi.model.Locadora;
 import com.lugi.Lugi.repositories.LocadoraRepository;
 
@@ -60,7 +59,6 @@ public class LocadoraController {
 					locadoraRepository.delete(locadora);
 					return ResponseEntity.ok().build();
 				}).orElseThrow (() -> new  ResourceNotFoundException("FamilyMember not found: " + locadoraId));
-
 	}
 	
 
