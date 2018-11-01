@@ -36,6 +36,9 @@ public class Aluguel {
 		this.valor = valor;
 		this.tipoPagamento = tipoPagamento;
 	}
+	
+	public Aluguel() {
+	}
 
 
 

@@ -72,7 +72,8 @@ public class Locadora {
 	}
 
 	public void setCarros(List<Carro> carros) {
-		this.carros = carros;
+		this.carros.clear();
+		this.carros.addAll(carros);
 	}
 
 	public List<Cliente> getClientes() {
@@ -80,7 +81,8 @@ public class Locadora {
 	}
 
 	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
+		this.clientes.clear();
+		this.clientes.addAll(clientes);
 	}
 
 	@Override
