@@ -23,22 +23,6 @@ public class Carro {
 	@Column
 	private float valorDaDiaria;
 
-	public Carro(Long id, int ano, String modelo, int quilometragem, String cor, float valorDaDiaria) {
-		super();
-		this.id = id;
-		this.ano = ano;
-		this.modelo = modelo;
-		this.quilometragem = quilometragem;
-		this.cor = cor;
-		this.valorDaDiaria = valorDaDiaria;
-	}
-	
-	
-	public Carro() {
-
-	}
-
-
 
 	public Long getId() {
 		return id;
