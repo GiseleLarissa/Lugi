@@ -43,9 +43,9 @@ public class ClienteController {
 
 			return clienteRepository.findById(clienteId)
 			.map( cliente -> {
-			cliente.setCPF(clienteRequest.getCPF());
+			cliente.setCpf(clienteRequest.getCpf());
 			cliente.setNome(clienteRequest.getNome());
-			cliente.setDatadeNascimento(clienteRequest.getDatadeNascimento());
+			cliente.setDataDeNascimento(clienteRequest.getDataDeNascimento());
 			cliente.setCelular(clienteRequest.getCelular());
 			cliente.setEmail(clienteRequest.getEmail());
 			cliente.setAluguel(clienteRequest.getAluguel());
