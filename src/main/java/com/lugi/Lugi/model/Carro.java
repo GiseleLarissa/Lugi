@@ -32,6 +32,13 @@ public class Carro {
 		this.cor = cor;
 		this.valorDaDiaria = valorDaDiaria;
 	}
+	
+	
+	public Carro() {
+
+	}
+
+
 
 	public Long getId() {
 		return id;

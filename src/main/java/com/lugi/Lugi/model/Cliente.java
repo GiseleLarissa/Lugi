@@ -33,18 +33,6 @@ private Aluguel aluguel;
 
 
 
-public Cliente(Long id, String nome, String email, double cPF, double celular, LocalDate datadeNascimento,
-		Aluguel aluguel) {
-	super();
-	this.id = id;
-	this.nome = nome;
-	Email = email;
-	CPF = cPF;
-	Celular = celular;
-	DatadeNascimento = datadeNascimento;
-	this.aluguel = aluguel;
-}
-
 
 public Long getId() {
 	return id;
