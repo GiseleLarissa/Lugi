@@ -25,16 +25,7 @@ public class Locadora {
 	@OneToMany
 	private List<Cliente> clientes;
 
-	public Locadora(Long id, int cnpj, String endereco, double contato, List<Carro> carros, List<Cliente> clientes) {
-		super();
-		this.id = id;
-		this.cnpj = cnpj;
-		this.endereco = endereco;
-		Contato = contato;
-		this.carros = carros;
-		this.clientes = clientes;
-	}
-
+	
 	public Long getId() {
 		return id;
 	}
