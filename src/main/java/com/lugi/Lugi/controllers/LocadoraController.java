@@ -27,17 +27,17 @@ public class LocadoraController {
 	LocadoraRepository locadoraRepository; 
 	
 	
-    @GetMapping("/carro")
+    @GetMapping("/locadora")
     public Page<Locadora> getLocadora(Pageable pageable){
     	return locadoraRepository.findAll(pageable);
     }
     
-	@PostMapping("/carro")
+	@PostMapping("/locadora")
 	public Locadora createLocadora(@Valid @RequestBody Locadora locadora) {
 		return locadoraRepository.save(locadora);
 	}
 	
-	@PutMapping("/carro")
+	@PutMapping("/locadora")
 	public Locadora updateLocadora(@PathVariable Long locadoraId, 
 			
 			 @Valid @RequestBody Locadora locadoraRequest) {
@@ -53,7 +53,7 @@ public class LocadoraController {
 		}).orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + locadoraId));
 		}
 			
-	@DeleteMapping("/carro")
+	@DeleteMapping("/locadora")
 	public ResponseEntity<?> deleteQuestion(@PathVariable Long locadoraId){
 		return locadoraRepository.findById(locadoraId)
 				.map(locadora ->{
