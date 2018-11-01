@@ -7,154 +7,145 @@ import javax.persistence.*;
 
 @Entity
 public class Cliente {
-	
-	
-@Id
-@GeneratedValue
-private Long id;
-
-@Column
-private String nome;
-
-@Column
-private String Email;
-
-@Column
-private double CPF;
-
-@Column
-private double Celular;
-
-@Column 
-private LocalDate DatadeNascimento;
-
-@OneToOne
-private Aluguel aluguel;
 
 
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	@Column
+	private String nome;
+
+	@Column
+	private String email;
+
+	@Column
+	private double cpf;
+
+	@Column
+	private double celular;
+
+	@Column 
+	private LocalDate dataDeNascimento;
+
+	@OneToOne
+	private Aluguel aluguel;
 
 
-public Long getId() {
-	return id;
-}
 
-public void setId(Long id) {
-	this.id = id;
-}
+	public Long getId() {
+		return id;
+	}
 
-public String getNome() {
-	return nome;
-}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-public void setNome(String nome) {
-	this.nome = nome;
-}
+	public String getNome() {
+		return nome;
+	}
 
-public String getEmail() {
-	return Email;
-}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-public void setEmail(String email) {
-	Email = email;
-}
+	public String getEmail() {
+		return email;
+	}
 
-public double getCPF() {
-	return CPF;
-}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-public void setCPF(double cPF) {
-	CPF = cPF;
-}
+	public double getCpf() {
+		return cpf;
+	}
 
-public double getCelular() {
-	return Celular;
-}
+	public void setCpf(double cpf) {
+		this.cpf = cpf;
+	}
 
-public void setCelular(double celular) {
-	Celular = celular;
-}
+	public double getCelular() {
+		return celular;
+	}
 
-public LocalDate getDatadeNascimento() {
-	return DatadeNascimento;
-}
+	public void setCelular(double celular) {
+		this.celular = celular;
+	}
 
-public void setDatadeNascimento(LocalDate datadeNascimento) {
-	DatadeNascimento = datadeNascimento;
-}
+	public LocalDate getDataDeNascimento() {
+		return dataDeNascimento;
+	}
 
-public Aluguel getAluguel() {
-	return aluguel;
-}
+	public void setDataDeNascimento(LocalDate dataDeNascimento) {
+		this.dataDeNascimento = dataDeNascimento;
+	}
 
-public void setAluguel(Aluguel aluguel) {
-	this.aluguel = aluguel;
-}
+	public Aluguel getAluguel() {
+		return aluguel;
+	}
 
+	public void setAluguel(Aluguel aluguel) {
+		this.aluguel = aluguel;
+	}
 
-@Override
-public int hashCode() {
-	final int prime = 31;
-	int result = 1;
-	long temp;
-	temp = Double.doubleToLongBits(CPF);
-	result = prime * result + (int) (temp ^ (temp >>> 32));
-	temp = Double.doubleToLongBits(Celular);
-	result = prime * result + (int) (temp ^ (temp >>> 32));
-	result = prime * result + ((DatadeNascimento == null) ? 0 : DatadeNascimento.hashCode());
-	result = prime * result + ((Email == null) ? 0 : Email.hashCode());
-	result = prime * result + ((aluguel == null) ? 0 : aluguel.hashCode());
-	result = prime * result + ((id == null) ? 0 : id.hashCode());
-	result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-	return result;
-}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((aluguel == null) ? 0 : aluguel.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(celular);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(cpf);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((dataDeNascimento == null) ? 0 : dataDeNascimento.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
+	}
 
-
-@Override
-public boolean equals(Object obj) {
-	if (this == obj)
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		if (aluguel == null) {
+			if (other.aluguel != null)
+				return false;
+		} else if (!aluguel.equals(other.aluguel))
+			return false;
+		if (Double.doubleToLongBits(celular) != Double.doubleToLongBits(other.celular))
+			return false;
+		if (Double.doubleToLongBits(cpf) != Double.doubleToLongBits(other.cpf))
+			return false;
+		if (dataDeNascimento == null) {
+			if (other.dataDeNascimento != null)
+				return false;
+		} else if (!dataDeNascimento.equals(other.dataDeNascimento))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
 		return true;
-	if (obj == null)
-		return false;
-	if (getClass() != obj.getClass())
-		return false;
-	Cliente other = (Cliente) obj;
-	if (Double.doubleToLongBits(CPF) != Double.doubleToLongBits(other.CPF))
-		return false;
-	if (Double.doubleToLongBits(Celular) != Double.doubleToLongBits(other.Celular))
-		return false;
-	if (DatadeNascimento == null) {
-		if (other.DatadeNascimento != null)
-			return false;
-	} else if (!DatadeNascimento.equals(other.DatadeNascimento))
-		return false;
-	if (Email == null) {
-		if (other.Email != null)
-			return false;
-	} else if (!Email.equals(other.Email))
-		return false;
-	if (aluguel == null) {
-		if (other.aluguel != null)
-			return false;
-	} else if (!aluguel.equals(other.aluguel))
-		return false;
-	if (id == null) {
-		if (other.id != null)
-			return false;
-	} else if (!id.equals(other.id))
-		return false;
-	if (nome == null) {
-		if (other.nome != null)
-			return false;
-	} else if (!nome.equals(other.nome))
-		return false;
-	return true;
-} 
-
-
-
-
-
-
+	}
 
 }
 
