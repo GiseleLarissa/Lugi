@@ -27,21 +27,6 @@ public class Aluguel {
 
 
 
-	public Aluguel(Long id, LocalDateTime dataHoradoAluguel, int quilometragePercorrida, float valor,
-			TipoPagamento tipoPagamento) {
-		super();
-		this.id = id;
-		this.dataHoradoAluguel = dataHoradoAluguel;
-		this.quilometragePercorrida = quilometragePercorrida;
-		this.valor = valor;
-		this.tipoPagamento = tipoPagamento;
-	}
-	
-	public Aluguel() {
-	}
-
-
-
 	public Long getId() {
 		return id;
 	}
