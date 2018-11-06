@@ -30,6 +30,12 @@ public class CarroController {
 		return  carroRepository.findAll(pageable);
 	}
 	
+	@GetMapping("/carro/{carroId}")
+	public Carro getCarro(@PathVariable Long carroId){
+		return  carroRepository.findById(carroId)
+		.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + carroId));
+	}
+	
 	@PostMapping("/carro")
 	public Carro createCarro(@Valid @RequestBody Carro carro) {
 		return carroRepository.save(carro);
