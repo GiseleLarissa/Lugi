@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lugi.Lugi.exception.ResourceNotFoundException;
+import com.lugi.Lugi.model.Aluguel;
 import com.lugi.Lugi.model.Cliente;
 import com.lugi.Lugi.repositories.ClienteRepository;
 
@@ -30,13 +31,20 @@ public class ClienteController {
     public Page<Cliente> getCliente(Pageable pageable){
 		return  clienteRepository.findAll(pageable);
 	}
+    
+    @GetMapping("/cliente/{clienteId}")
+	public Cliente getCliente(@PathVariable Long clienteId){
+		return  clienteRepository.findById(clienteId)
+		.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + clienteId));
+	}
+    
 	
 	@PostMapping("/cliente")
 	public Cliente createCliente(@Valid @RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
 	
-	@PutMapping("/cliente")
+	@PutMapping("/cliente/{clienteId}")
 	public Cliente updateCliente(@PathVariable Long clienteId, 
 			
             @Valid @RequestBody Cliente clienteRequest) {
@@ -53,7 +61,7 @@ public class ClienteController {
 			}).orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + clienteId));
 			}
 	
-	@DeleteMapping("/cliente")
+	@DeleteMapping("/cliente/{clienteId}")
 	public ResponseEntity<?> deleteQuestion(@PathVariable Long clienteId){
 		return clienteRepository.findById(clienteId)
 				.map(cliente ->{
