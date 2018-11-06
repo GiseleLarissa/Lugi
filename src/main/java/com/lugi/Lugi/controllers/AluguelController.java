@@ -2,6 +2,7 @@ package com.lugi.Lugi.controllers;
 
 import javax.validation.Valid;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,6 +30,14 @@ public class AluguelController {
 	public Page<Aluguel> getAluguel(Pageable pageable){
 		return aluguelRepository.findAll(pageable);
 	}
+	
+	
+	@GetMapping("/aluguel/{aluguelId}")
+	public Aluguel getAluguel(@PathVariable Long aluguelId){
+		return  aluguelRepository.findById(aluguelId)
+		.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + aluguelId));
+	}
+	
 	
 	@PostMapping("/aluguel")
 	public Aluguel createAluguel(@Valid @RequestBody Aluguel aluguel) {

@@ -2,6 +2,7 @@ package com.lugi.Lugi.controllers;
 
 import javax.validation.Valid;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lugi.Lugi.exception.ResourceNotFoundException;
-import com.lugi.Lugi.model.Carro;
 import com.lugi.Lugi.model.Cliente;
 import com.lugi.Lugi.repositories.ClienteRepository;
 
@@ -26,17 +26,17 @@ public class ClienteController {
 	@Autowired
 	ClienteRepository clienteRepository;
 	
-    @GetMapping("")
+    @GetMapping("/cliente")
     public Page<Cliente> getCliente(Pageable pageable){
 		return  clienteRepository.findAll(pageable);
 	}
 	
-	@PostMapping("")
+	@PostMapping("/cliente")
 	public Cliente createCliente(@Valid @RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
 	
-	@PutMapping("")
+	@PutMapping("/cliente")
 	public Cliente updateCliente(@PathVariable Long clienteId, 
 			
             @Valid @RequestBody Cliente clienteRequest) {
@@ -53,7 +53,7 @@ public class ClienteController {
 			}).orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + clienteId));
 			}
 	
-	@DeleteMapping("")
+	@DeleteMapping("/cliente")
 	public ResponseEntity<?> deleteQuestion(@PathVariable Long clienteId){
 		return clienteRepository.findById(clienteId)
 				.map(cliente ->{
