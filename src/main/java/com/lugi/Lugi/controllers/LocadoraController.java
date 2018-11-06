@@ -3,6 +3,7 @@ package com.lugi.Lugi.controllers;
 import javax.validation.Valid;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,6 +31,14 @@ public class LocadoraController {
     public Page<Locadora> getLocadora(Pageable pageable){
     	return locadoraRepository.findAll(pageable);
     }
+    
+    @GetMapping("/locadora/{locadoraId}")
+   	public Locadora getLocadora(@PathVariable Long locadoraId){
+   		return  locadoraRepository.findById(locadoraId)
+   		.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + locadoraId));
+   	}
+    
+  
     
 	@PostMapping("/locadora")
 	public Locadora createLocadora(@Valid @RequestBody Locadora locadora) {

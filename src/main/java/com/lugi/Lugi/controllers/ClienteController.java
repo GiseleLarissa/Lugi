@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lugi.Lugi.exception.ResourceNotFoundException;
-import com.lugi.Lugi.model.Aluguel;
 import com.lugi.Lugi.model.Cliente;
 import com.lugi.Lugi.repositories.ClienteRepository;
 
