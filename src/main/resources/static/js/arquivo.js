@@ -14,7 +14,6 @@ function createTable(){
 
 			for(let i=0; i <r.content.length; i++){
 				let p = r.content[i];
-
 				tb.innerHTML += `<tr><th>${p.nome}</th><th>${p.email}</th><th>${p.cpf}</th><th>${p.celular}</th> <th>${p.dataDeNascimento}</th></tr>`				
 
 			};
@@ -27,36 +26,34 @@ createTable();
 
 
 function adicionar(){
-	let  xhr = new XMLHttpRequest();
-	xhr.open('POST', '/cliente')
+	let  xhr2 = new XMLHttpRequest();
+	xhr2.open('POST', '/cliente')
 
-	xhr.onload = function(){
+	xhr2.onload = function(){
 		if(this.status == 200){
 			let r = JSON.parse(this.responseText);
-			cosole.log(r);		
+			console.log(r);		
 		}
 	};
 
-	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr2.setRequestHeader('Content-Type', 'application/json');
 
 	let cliente = new Object();
 
-	let espacoNome = document.getElementById("nome");
-	let espacoEmail = document.getElementById("email");
-	let espacoCpf = document.getElementById("cpf")
-	let espacoCelular = document.getElementById("celular");
-	let espacoDataDeNascimento = document.getElementById("dataNascimento");
+	let nome = document.getElementById("nome").value;
+	let email = document.getElementById("email").value;
+	let cpf = document.getElementById("cpf").value;
+	let celular = document.getElementById("celular").value;
+	let dataDeNascimento = document.getElementById("dataDeNascimento").value;
 
 
-	cliente.espacoNome = espacoNome.value; 
-	cliente.espacoEmail = espacoEmail.value;
-	cliente.espacoCpf = espacoCpf.value; 
-	cliente.espacoCelular = espacoCelular.value; 
-	cliente.espacoDataDENascimento = espacoDataDeNascimento.value; 
+	cliente.nome = nome; 
+	cliente.email = email;
+	cliente.cpf = cpf; 
+	cliente.celular = celular; 
+	cliente.dataDeNascimento = dataDeNascimento; 
 
 
-	xhr.send(JSON.stringify(cliente));
+	xhr2.send(JSON.stringify(cliente));
 
 }
-
-adicionar();
