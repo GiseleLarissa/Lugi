@@ -9,30 +9,35 @@ table, th, td {
 	border-collapse: collapse;
 }
 </style>
-<script type="text/javascript" src="/arquivo.js">
+<script type="text/javascript" src="js/arquivo.js">
 	
 </script>
 
 </head>
 <body>
-	Posições:
-
-	<table id="posicoes">
-		<tr>
-		<td>Celular</td>
-		<td>Latitude</td>
-		<td>Longitude</td>
-		<td>Timestamp</td>
-		</tr>
-	</table>
-	<br/>
-	Latitude: <input id="lat"></input>
-	<br/>
-	Longitude: <input id="long"></input>
-	<br/>
-	Timestamp: <input id="tm"></input>
-	<br/>
-	<button onClick="clique();">Enviar!</button>
+		Posições:
+		<table id="clientes">
+			<tr>
+			<td>Nome </td>
+			<td>Email </td>
+			<td>CPF </td>
+			<td>Celular </td>
+			<td>Data de Nascimento </td>
+			</tr>
+		</table>
+		<br/>
+	     Nome: <input id="nome"></input>
+		<br/>
+		 E-mail: <input id="email"></input>
+		<br/>
+		 CPF: <input id="cpf"></input>
+		<br/>
+		 Celular: <input id="celular"></input>
+		<br/>
+		 Data de Nascimento: <input id="dataNascimento"></input>
+		<br/>
+		<button onClick="createTable();">Enviar!</button>
+		<button onClick="adicionar();">add!</button>
 
 </body>
 </html>
