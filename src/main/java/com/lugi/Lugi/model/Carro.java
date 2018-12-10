@@ -1,4 +1,6 @@
 package com.lugi.Lugi.model;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,14 +17,13 @@ public class Carro {
 	private String modelo;
 
 	@Column
-	private int quilometragem;
-
-	@Column
 	private String cor;
 
 	@Column
 	private float valorDaDiaria;
-
+	
+	@OneToMany 
+	private List<Aluguel> aluguel;
 
 	public Long getId() {
 		return id;
@@ -48,14 +49,6 @@ public class Carro {
 		this.modelo = modelo;
 	}
 
-	public int getQuilometragem() {
-		return quilometragem;
-	}
-
-	public void setQuilometragem(int quilometragem) {
-		this.quilometragem = quilometragem;
-	}
-
 	public String getCor() {
 		return cor;
 	}
@@ -72,15 +65,23 @@ public class Carro {
 		this.valorDaDiaria = valorDaDiaria;
 	}
 
+	public List<Aluguel> getAluguel() {
+		return aluguel;
+	}
+
+	public void setAluguel(List<Aluguel> aluguel) {
+		this.aluguel = aluguel;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((aluguel == null) ? 0 : aluguel.hashCode());
 		result = prime * result + ano;
 		result = prime * result + ((cor == null) ? 0 : cor.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
-		result = prime * result + quilometragem;
 		result = prime * result + Float.floatToIntBits(valorDaDiaria);
 		return result;
 	}
@@ -94,6 +95,11 @@ public class Carro {
 		if (getClass() != obj.getClass())
 			return false;
 		Carro other = (Carro) obj;
+		if (aluguel == null) {
+			if (other.aluguel != null)
+				return false;
+		} else if (!aluguel.equals(other.aluguel))
+			return false;
 		if (ano != other.ano)
 			return false;
 		if (cor == null) {
@@ -111,23 +117,10 @@ public class Carro {
 				return false;
 		} else if (!modelo.equals(other.modelo))
 			return false;
-		if (quilometragem != other.quilometragem)
-			return false;
 		if (Float.floatToIntBits(valorDaDiaria) != Float.floatToIntBits(other.valorDaDiaria))
 			return false;
 		return true;
-	}
-
-
-
-
-
-
-
-
-
-
-
+	} 
 
 
 }

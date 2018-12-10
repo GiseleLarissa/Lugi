@@ -34,7 +34,7 @@ public class ClienteController {
     @GetMapping("/cliente/{clienteId}")
 	public Cliente getCliente(@PathVariable Long clienteId){
 		return  clienteRepository.findById(clienteId)
-		.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + clienteId));
+		.orElseThrow(() -> new ResourceNotFoundException("ERRO: NÃO ENCONTRADO  " + clienteId));
 	}
     
 	
@@ -52,12 +52,12 @@ public class ClienteController {
 			.map( cliente -> {
 			cliente.setCpf(clienteRequest.getCpf());
 			cliente.setNome(clienteRequest.getNome());
-			cliente.setDataDeNascimento(clienteRequest.getDataDeNascimento());
-			cliente.setCelular(clienteRequest.getCelular());
+			cliente.setIdade(clienteRequest.getIdade());
+			cliente.setContato(clienteRequest.getContato());
 			cliente.setEmail(clienteRequest.getEmail());
 			cliente.setAluguel(clienteRequest.getAluguel());
 			return clienteRepository.save(cliente);
-			}).orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + clienteId));
+			}).orElseThrow(() -> new ResourceNotFoundException("ERRO: NÃO ENCONTRADO  " + clienteId));
 			}
 	
 	@DeleteMapping("/cliente/{clienteId}")
@@ -66,7 +66,7 @@ public class ClienteController {
 				.map(cliente ->{
 					clienteRepository.delete(cliente);
 					return ResponseEntity.ok().build();
-				}).orElseThrow (() -> new  ResourceNotFoundException("FamilyMember not found: " + clienteId));
+				}).orElseThrow (() -> new  ResourceNotFoundException("ERRO: NÃO ENCONTRADO  " + clienteId));
 
 	}
 

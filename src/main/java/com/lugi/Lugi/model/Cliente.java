@@ -1,6 +1,5 @@
 package com.lugi.Lugi.model;
 
-import java.time.LocalDate;
 
 import javax.persistence.*;
 
@@ -20,18 +19,19 @@ public class Cliente {
 	private String email;
 
 	@Column
-	private double cpf;
+	private String cpf;
 
 	@Column
-	private double celular;
+	private double contato;
 
 	@Column 
-	private LocalDate dataDeNascimento;
+	private int idade;
+	
+	@Column
+	private String endereco; 
 
 	@OneToOne
 	private Aluguel aluguel;
-
-
 
 	public Long getId() {
 		return id;
@@ -57,28 +57,36 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public double getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(double cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
-	public double getCelular() {
-		return celular;
+	public double getContato() {
+		return contato;
 	}
 
-	public void setCelular(double celular) {
-		this.celular = celular;
+	public void setContato(double contato) {
+		this.contato = contato;
 	}
 
-	public LocalDate getDataDeNascimento() {
-		return dataDeNascimento;
+	public int getIdade() {
+		return idade;
 	}
 
-	public void setDataDeNascimento(LocalDate dataDeNascimento) {
-		this.dataDeNascimento = dataDeNascimento;
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public Aluguel getAluguel() {
@@ -95,13 +103,13 @@ public class Cliente {
 		int result = 1;
 		result = prime * result + ((aluguel == null) ? 0 : aluguel.hashCode());
 		long temp;
-		temp = Double.doubleToLongBits(celular);
+		temp = Double.doubleToLongBits(contato);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(cpf);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((dataDeNascimento == null) ? 0 : dataDeNascimento.hashCode());
+		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + idade;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -120,24 +128,29 @@ public class Cliente {
 				return false;
 		} else if (!aluguel.equals(other.aluguel))
 			return false;
-		if (Double.doubleToLongBits(celular) != Double.doubleToLongBits(other.celular))
+		if (Double.doubleToLongBits(contato) != Double.doubleToLongBits(other.contato))
 			return false;
-		if (Double.doubleToLongBits(cpf) != Double.doubleToLongBits(other.cpf))
-			return false;
-		if (dataDeNascimento == null) {
-			if (other.dataDeNascimento != null)
+		if (cpf == null) {
+			if (other.cpf != null)
 				return false;
-		} else if (!dataDeNascimento.equals(other.dataDeNascimento))
+		} else if (!cpf.equals(other.cpf))
 			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
+		if (endereco == null) {
+			if (other.endereco != null)
+				return false;
+		} else if (!endereco.equals(other.endereco))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (idade != other.idade)
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
@@ -147,6 +160,7 @@ public class Cliente {
 		return true;
 	}
 
+	
 }
 
 

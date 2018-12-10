@@ -33,7 +33,7 @@ public class CarroController {
 	@GetMapping("/carro/{carroId}")
 	public Carro getCarro(@PathVariable Long carroId){
 		return  carroRepository.findById(carroId)
-		.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + carroId));
+		.orElseThrow(() -> new ResourceNotFoundException("ERRO: NÃO ENCONTRADO  " + carroId));
 	}
 	
 	@PostMapping("/carro")
@@ -51,10 +51,9 @@ public class CarroController {
 			carro.setAno(carroRequest.getAno());
 			carro.setCor(carroRequest.getCor());
 			carro.setModelo(carroRequest.getModelo());
-			carro.setQuilometragem(carroRequest.getQuilometragem());
 			carro.setValorDaDiaria(carroRequest.getValorDaDiaria());
 			return carroRepository.save(carro);
-			}).orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + carroId));
+			}).orElseThrow(() -> new ResourceNotFoundException("ERRO: NÃO ENCONTRADO " + carroId));
 			}
 	
 	
@@ -64,7 +63,7 @@ public class CarroController {
 				.map(carro ->{
 					carroRepository.delete(carro);
 					return ResponseEntity.ok().build();
-				}).orElseThrow (() -> new  ResourceNotFoundException("FamilyMember not found: " + carroId));
+				}).orElseThrow (() -> new  ResourceNotFoundException("ERRO: NÃO ENCONTRADO  " + carroId));
 
 	}
 }

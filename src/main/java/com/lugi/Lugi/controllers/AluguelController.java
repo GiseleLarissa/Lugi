@@ -35,7 +35,7 @@ public class AluguelController {
 	@GetMapping("/aluguel/{aluguelId}")
 	public Aluguel getAluguel(@PathVariable Long aluguelId){
 		return  aluguelRepository.findById(aluguelId)
-		.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + aluguelId));
+		.orElseThrow(() -> new ResourceNotFoundException("ERRO: NÃO ENCONTRADO" + aluguelId));
 	}
 	
 	
@@ -51,12 +51,12 @@ public class AluguelController {
 		
 		return aluguelRepository.findById(aluguelId)
 				.map(aluguel -> {
-					aluguel.setDataHoradoAluguel(aluguelRequest.getDataHoradoAluguel());
-					aluguel.setQuilometragePercorrida(aluguelRequest.getQuilometragePercorrida());
-					aluguel.setValor(aluguelRequest.getValor());
+					aluguel.setData(aluguelRequest.getData());
+					aluguel.setHora(aluguelRequest.getHora());
+					aluguel.setValorDaDiaria(aluguelRequest.getValorDaDiaria());
 					aluguel.setTipoPagamento(aluguelRequest.getTipoPagamento());
 					return aluguelRepository.save(aluguel);
-		}).orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found: " + aluguelId));
+		}).orElseThrow(() -> new ResourceNotFoundException("ERRO: NÃO ENCONTRADO " + aluguelId));
 	}
 	
 	@DeleteMapping("/aluguel/{aluguelId}")
@@ -65,7 +65,7 @@ public class AluguelController {
 				.map(aluguel ->{
 					aluguelRepository.delete(aluguel);
 					return ResponseEntity.ok().build();
-				}).orElseThrow (() -> new  ResourceNotFoundException("FamilyMember not found: " + aluguelId));
+				}).orElseThrow (() -> new  ResourceNotFoundException("ERRO: NÃO ENCONTRADO " + aluguelId));
 
 	}
 				
