@@ -44,7 +44,7 @@ public class ClienteValidacaoTest {
 	//TESTE PARA EMAIL 
 	
 		@Test
-		public void nãoPodesemArroba() {
+		public void naoPodesemArroba() {
 			ClienteValidacao cliente = new ClienteValidacao();
 
 
@@ -62,7 +62,7 @@ public class ClienteValidacaoTest {
 		}
 
 		@Test
-		public void nãoPodesemPonto() {
+		public void naoPodesemPonto() {
 			ClienteValidacao cliente = new ClienteValidacao();
 
 			String nome = "LucianoMelquiades";
@@ -79,7 +79,7 @@ public class ClienteValidacaoTest {
 		}
 		
 		@Test
-		public void nãoPodeComCaracteresEspeciais() {
+		public void naoPodeComCaracteresEspeciais() {
 			ClienteValidacao cliente = new ClienteValidacao();
 
 			String nome = "Luciano Melquiades";
@@ -101,7 +101,7 @@ public class ClienteValidacaoTest {
 		
 		//TESTE PARA CPF  
 		@Test
-		public void nãopermitirValidarCpfComTracoEVirgula() {
+		public void naopermitirValidarCpfComTracoEVirgula() {
 			ClienteValidacao cliente = new ClienteValidacao();
 			
 			String nome = "Luciano Melquiades";
@@ -161,7 +161,7 @@ public class ClienteValidacaoTest {
 		//TESTE PARA IDADE 
 		
 		@Test
-		public void nãoPemitirValidarMenorDe18() {
+		public void naoPemitirValidarMenorDe18() {
 			ClienteValidacao cliente = new ClienteValidacao();
 	
 			String nome = "Luciano Melquiades";
@@ -178,7 +178,7 @@ public class ClienteValidacaoTest {
 		}
 		
 		@Test
-		public void nãoPemitirValidarMaiorDe100() {
+		public void naoPemitirValidarMaiorDe100() {
 			ClienteValidacao cliente = new ClienteValidacao();
 	
 			String nome = "Luciano Melquiades";

@@ -13,7 +13,7 @@ function createTable(){
 
 			for(let i=0; i <r.content.length; i++){
 				let p = r.content[i];
-				tb.innerHTML += `<tr><th>${p.modelo}</th><th>${p.ano}</th><th>${p.cor}</th><th>${p.quilometragem}</th> <th>${p.valorDaDiaria}</th></tr>`				
+				tb.innerHTML += `<tr><th>${p.modelo}</th><th>${p.ano}</th><th>${p.cor}</th><th>${p.valorDaDiaria}</th></tr>`				
 
 			};
 		};
@@ -42,17 +42,15 @@ function adicionar(){
 	let modelo = document.getElementById("modelo").value;
 	let ano = document.getElementById("ano").value;
 	let cor = document.getElementById("cor").value;
-	let quilometragem = document.getElementById("quilometragem").value;
 	let valorDaDiaria = document.getElementById("valorDaDiaria").value;
 
 
-	cliente.modelo = modelo; 
-	cliente.ano = ano;
-	cliente.cor = cor; 
-	cliente.quilometragem = quilometragem; 
-	cliente.valorDaDiaria = valorDaDiaria; 
+	carro.modelo = modelo; 
+	carro.ano = ano;
+	carro.cor = cor; 
+	carro.valorDaDiaria = valorDaDiaria; 
 
 
-	xhr2.send(JSON.stringify(cliente));
+	xhr2.send(JSON.stringify(carro));
 
 }

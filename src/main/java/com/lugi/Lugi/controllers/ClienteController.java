@@ -55,6 +55,7 @@ public class ClienteController {
 			cliente.setIdade(clienteRequest.getIdade());
 			cliente.setContato(clienteRequest.getContato());
 			cliente.setEmail(clienteRequest.getEmail());
+			cliente.setEndereco(clienteRequest.getEndereco());
 			cliente.setAluguel(clienteRequest.getAluguel());
 			return clienteRepository.save(cliente);
 			}).orElseThrow(() -> new ResourceNotFoundException("ERRO: NÃO ENCONTRADO  " + clienteId));

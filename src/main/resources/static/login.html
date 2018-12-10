@@ -30,8 +30,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 
 <header class="w3-display-container w3-content" style="max-width:1500px;">
   
-      <h2><i class="fa  w3-margin-right"></i>Cadastrar Usuario</h2>
-    </div>
+   
+    <h2><i class="fa  w3-margin-right"></i>Cadastrar Usuario</h2>
+  
     <div class="w3-container w3-white w3-padding-16">
       <form target="_blank">
         <div class="w3-row-padding" style="margin:0 -16px;">
@@ -48,21 +49,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
             <input class="w3-input w3-border" id="email" required>
           </div>
           <div class="w3-half w3-margin-bottom">
-            <label><i class="fa fa"></i> Celular</label>
-            <input class="w3-input w3-border" id="celular" required>
+            <label><i class="fa fa"></i> Contato</label>
+            <input class="w3-input w3-border" id="contato" required>
           </div>
           <div class="w3-half w3-margin-bottom">
-            <label><i class="fa fa"></i> Data de nascimento </label>
-            <input class="w3-input w3-border" id="dataDeNascimento" required>
-          </div> 
-          
-		<button onClick="adicionar();">add!</button>
+            <label><i class="fa fa"></i>Idade </label>
+            <input class="w3-input w3-border" id="idade" required>
+          </div>
+          <div class="w3-half w3-margin-bottom">
+            <label><i class="fa fa"></i>Endereço</label>
+            <input class="w3-input w3-border" id="endereco" required>
+          </div>    
+          </div>
+		<button onClick="adicionar();">Sorte!</button>
       </form>
     </div>
-  </div>
+
 </header>
-
-
 
 		Posições:
 		<table id="clientes">
@@ -70,8 +73,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 			<td>Nome </td>
 			<td>Email </td>
 			<td>CPF </td>
-			<td>Celular </td>
-			<td>Data de Nascimento </td>
+			<td>Contato </td>
+			<td>Idade </td>
+			<td>Endereço </td>
 			</tr>
 		</table>
 		
