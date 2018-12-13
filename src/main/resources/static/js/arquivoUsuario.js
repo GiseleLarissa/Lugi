@@ -14,8 +14,7 @@ function createTable(){
 
 			for(let i=0; i <r.content.length; i++){
 				let p = r.content[i];
-				tb.innerHTML += `<tr><th>${p.nome}</th><th>${p.email}</th><th>${p.cpf}</th><th>${p.contato}</th> <th>${p.idade}</th> <th>${p.endereco}</th></tr>`				
-
+				tb.innerHTML += `<tr><th>${p.nome}</th><th>${p.cpf}</th><th>${p.email}</th><th>${p.contato}</th><th>${p.idade}</th><th>${p.endereco}</th></tr>`
 			};
 		};
 
@@ -41,8 +40,8 @@ function adicionar(){
 	let cliente = new Object();
 
 	let nome = document.getElementById("nome").value;
-	let email = document.getElementById("email").value;
 	let cpf = document.getElementById("cpf").value;
+	let email = document.getElementById("email").value;
 	let contato = document.getElementById("contato").value;
 	let idade = document.getElementById("idade").value;
 	let endereco = document.getElementById("endereco").value;

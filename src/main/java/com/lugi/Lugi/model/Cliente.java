@@ -22,10 +22,10 @@ public class Cliente {
 	private String cpf;
 
 	@Column
-	private double contato;
+	private Double contato;
 
 	@Column 
-	private int idade;
+	private Integer idade;
 	
 	@Column
 	private String endereco; 
@@ -65,19 +65,19 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public double getContato() {
+	public Double getContato() {
 		return contato;
 	}
 
-	public void setContato(double contato) {
+	public void setContato(Double contato) {
 		this.contato = contato;
 	}
 
-	public int getIdade() {
+	public Integer getIdade() {
 		return idade;
 	}
 
-	public void setIdade(int idade) {
+	public void setIdade(Integer idade) {
 		this.idade = idade;
 	}
 
@@ -102,14 +102,12 @@ public class Cliente {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((aluguel == null) ? 0 : aluguel.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(contato);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((contato == null) ? 0 : contato.hashCode());
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + idade;
+		result = prime * result + ((idade == null) ? 0 : idade.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -128,7 +126,10 @@ public class Cliente {
 				return false;
 		} else if (!aluguel.equals(other.aluguel))
 			return false;
-		if (Double.doubleToLongBits(contato) != Double.doubleToLongBits(other.contato))
+		if (contato == null) {
+			if (other.contato != null)
+				return false;
+		} else if (!contato.equals(other.contato))
 			return false;
 		if (cpf == null) {
 			if (other.cpf != null)
@@ -150,7 +151,10 @@ public class Cliente {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (idade != other.idade)
+		if (idade == null) {
+			if (other.idade != null)
+				return false;
+		} else if (!idade.equals(other.idade))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
