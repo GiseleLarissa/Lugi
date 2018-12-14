@@ -14,7 +14,7 @@ function createTable(){
 
 			for(let i=0; i <r.content.length; i++){
 				let p = r.content[i];
-				tb.innerHTML += `<tr><th>${p.nome}</th><th>${p.cpf}</th><th>${p.email}</th><th>${p.contato}</th><th>${p.idade}</th><th>${p.endereco}</th></tr>`
+				tb.innerHTML += `<tr><th>${p.nome}</th><th>${p.cpf}</th><th>${p.email}</th><th>${p.contato}</th><th>${p.idade}</th><th>${p.endereco}</th><th>${p.senha}</th></tr>`
 			};
 		};
 
@@ -45,6 +45,8 @@ function adicionar(){
 	let contato = document.getElementById("contato").value;
 	let idade = document.getElementById("idade").value;
 	let endereco = document.getElementById("endereco").value;
+	let senha = document.getElementById("senha").value;
+	
 	
 
 
@@ -54,6 +56,7 @@ function adicionar(){
 	cliente.contato = contato; 
 	cliente.idade = idade; 
 	cliente.endereco = endereco;
+	cliente.senha = senha; 
 
 
 	xhr2.send(JSON.stringify(cliente));

@@ -47,7 +47,7 @@ public class ClienteController {
 	
 	@PostMapping("/login")
 	public Cliente login(@RequestBody Map <String, String> paMap) {
-		return clienteRepository.FindByUsuarioAndSenha(paMap.get("usuario"), paMap.get("senha"));
+		return clienteRepository.findByEmailAndSenha(paMap.get("email"), paMap.get("senha"));
 	}
 	
 	
