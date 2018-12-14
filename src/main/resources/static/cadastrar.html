@@ -23,36 +23,61 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 <body class="w3-light-grey">
 <div class="w3-bar w3-white w3-large">
   <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fa fa w3-margin-right"></i>RenteaCAR</a>
-  <a href="cadastrar.html" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">FAZER CADASTRO</a>
+  <a href="index.html" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">PAGINA PRINCIPAL</a>
 </div>
 
 
 <header class="w3-display-container w3-content" style="max-width:1500px;">
-
-   </br>
-   </br>
-    <div class="w3-container w3-red">
-      <h2><i class="fa fa w3-margin-right"></i>Faça seu login</h2>
-    </div>
+  
+   
+    <h2><i class="fa  w3-margin-right"></i>Cadastrar Usuario</h2>
+  
     <div class="w3-container w3-white w3-padding-16">
       <form target="_blank">
         <div class="w3-row-padding" style="margin:0 -16px;">
           <div class="w3-half w3-margin-bottom">
-            <label><i class="fa fa"></i> Usuario:</label>
-            <input class="w3-input w3-border"  id="usuario" required>
+            <label><i class="fa fa"></i> Nome</label>
+            <input class="w3-input w3-border" id="nome" required>
+          </div>
+          <div class="w3-half w3-margin-bottom">
+            <label><i class="fa fa"></i> CPF</label>
+            <input class="w3-input w3-border"  id="cpf" required>
           </div>
            <div class="w3-half w3-margin-bottom">
-            <label><i class="fa fa"></i> Senha:</label>
-            <input class="w3-input w3-border"  id="senha" required>
+            <label><i class="fa fa"></i> E-mail</label>
+            <input class="w3-input w3-border" id="email" required>
           </div>
-        </div>
-       <a href="index.html" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">ENTRAR</a>
+          <div class="w3-half w3-margin-bottom">
+            <label><i class="fa fa"></i> Contato</label>
+            <input class="w3-input w3-border" id="contato" required>
+          </div>
+          <div class="w3-half w3-margin-bottom">
+            <label><i class="fa fa"></i>Idade </label>
+            <input class="w3-input w3-border" id="idade" required>
+          </div>
+          <div class="w3-half w3-margin-bottom">
+            <label><i class="fa fa"></i>Endereço</label>
+            <input class="w3-input w3-border" id="endereco" required>
+          </div>    
+          </div>
+		<button onClick="adicionar();">CADASTRAR!</button>
       </form>
     </div>
-       
 
 </header>
 
+		<h2>Clientes cadastrados: </h2>
+		<table id="clientes">
+			<tr>
+			<td>Nome </td>
+			<td>Email </td>
+			<td>CPF </td>
+			<td>Contato </td>
+			<td>Idade </td>
+			<td>Endereço </td>
+			</tr>
+		</table>
+		
 
 <div class="w3-content" style="max-width:1532px;">
   <div class="w3-row-padding w3-large w3-center" style="margin:32px 0">
@@ -82,7 +107,4 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 </footer>
 
 </body>
-</html> 
-
-
-
+</html>

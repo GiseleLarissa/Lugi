@@ -1,5 +1,7 @@
 package com.lugi.Lugi.controllers;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 
 
@@ -43,6 +45,12 @@ public class ClienteController {
 		return clienteRepository.save(cliente);
 	}
 	
+	@PostMapping("/login")
+	public Cliente login(@RequestBody Map <String, String> paMap) {
+		return clienteRepository.FindByUsuarioAndSenha(paMap.get("usuario"), paMap.get("senha"));
+	}
+	
+	
 	@PutMapping("/cliente/{clienteId}")
 	public Cliente updateCliente(@PathVariable Long clienteId, 
 			
@@ -57,6 +65,7 @@ public class ClienteController {
 			cliente.setEmail(clienteRequest.getEmail());
 			cliente.setEndereco(clienteRequest.getEndereco());
 			cliente.setAluguel(clienteRequest.getAluguel());
+			cliente.setSenha(clienteRequest.getSenha());
 			return clienteRepository.save(cliente);
 			}).orElseThrow(() -> new ResourceNotFoundException("ERRO: NÃO ENCONTRADO  " + clienteId));
 			}

@@ -7,5 +7,7 @@ import com.lugi.Lugi.model.Cliente;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
+	
+	public Cliente FindByUsuarioAndSenha(String usuario, String senha);
 
 }
